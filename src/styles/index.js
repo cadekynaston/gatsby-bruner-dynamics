@@ -1,6 +1,6 @@
 import theme from '../styles/theme';
-import Container from '../styles/container';
-import Row from '../styles/row';
+import Container from '../styles/Container';
+import Row from '../styles/Row';
 import media from '../styles/media';
 
 
