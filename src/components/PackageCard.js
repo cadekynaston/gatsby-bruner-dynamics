@@ -4,16 +4,21 @@ import styled from "@emotion/styled"
 import PriceComponent from './PriceComponent'
 import PackageFeature from './PackageFeature'
 import PackageOrderButton from './PackageOrderButton'
+import seeMoreIcon from '../images/see-more-icon.svg'
 import { theme, media } from '../styles'
 
 const PackageCardElement = styled.div`
   padding: 15px;
   width: 100%;
   position: relative;
-  /* border-right: 1px solid ${theme.colors.borderGray}; */
+  border-right: ${props => props.noborder ? 'none' : `1px solid ${theme.colors.borderGray}` };
 
   &:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+  ${media.medium} {
+    border-right: none;
   }
 
   ${media.small} {
@@ -58,11 +63,16 @@ const SeeMoreButton = styled.p`
   }
 
   ${media.small} {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 `
 
-
+const SeeMore = styled.img`
+  margin-left: 3px;
+  margin-top: 2px;
+  transform: ${props => props.seeMore ? 'rotate(180deg)' : 'rotate(0)'};
+`
 class PackageCard extends React.Component {
 
   constructor() {
@@ -93,11 +103,13 @@ class PackageCard extends React.Component {
   render() {
 
     const packageData = this.props.packageData
+    const packageFeatures = packageData.packageDetails.map((detail, i) => <PackageFeature key={i} details={detail} />)
 
     return (
       <PackageCardElement
         onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave} >
+        onMouseLeave={this.handleMouseLeave}
+        noborder={this.props.noborder} >
         <PackageName hovered={this.state.packageHover} >{packageData.name}</PackageName>
         <PriceComponent
           priceDollars={packageData.priceDollars}
@@ -106,9 +118,7 @@ class PackageCard extends React.Component {
         <PackageFeatureContainer
          seeMore={this.state.seeMore}>
           <ColorLine hovered={this.state.packageHover}/>
-          <PackageFeature details={packageData.packageDetails[0]} />
-          <PackageFeature details={packageData.packageDetails[1]} />
-          <PackageFeature details={packageData.packageDetails[2]} />
+          {packageFeatures}
         </PackageFeatureContainer>
         <PackageOrderButton
           bgColor={this.state.packageHover ? theme.colors.green: theme.colors.blue}
@@ -116,6 +126,7 @@ class PackageCard extends React.Component {
 
         <SeeMoreButton onClick={this.handleSeeMore}>
           {this.state.seeMore ? 'See Less' : 'See More'}
+          <SeeMore src={seeMoreIcon} seeMore={this.state.seeMore} />
         </SeeMoreButton>
       </PackageCardElement>
     )

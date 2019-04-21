@@ -130,9 +130,20 @@ const GlobalStyles = () => (
 
     .max-width-500 {
       max-width: 500px;
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
+    .gatsby-sbs-image {
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gatsby-header-img {
+      height: 100%;
+      width: 100%;
+    }
   `}
   />
 )

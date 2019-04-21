@@ -1,16 +1,13 @@
 import React from "react"
 import styled from "@emotion/styled"
 
+import Image from './Image'
 import { media, Row, Container } from '../styles'
 
 const SidebySideContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-`
-
-const SideBySideImage = styled.img`
-  max-width: 100%;
 `
 
 const ContentContainer = styled.div`
@@ -30,14 +27,14 @@ const ImageContainer = styled.div`
   }
 `
 
-const SideBySide = ({ bgColor, image, children }) => {
+const SideBySide = ({ bgColor, image, children}) => {
 
   return (
     <Row bgColor={bgColor}>
       <Container>
         <SidebySideContainer>
           <ImageContainer>
-            <SideBySideImage src={image} />
+            <Image filename={image} classes='gatsby-sbs-image' />
           </ImageContainer>
           <ContentContainer>
             {children}

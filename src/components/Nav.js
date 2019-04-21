@@ -32,11 +32,6 @@ const StyledNav = styled.nav`
   align-items: center;
   max-width: ${theme.maxWidth};
   top: 0;
-
-  ${media.medium} {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
 `
 
 const LogoNavContainer = styled.div`

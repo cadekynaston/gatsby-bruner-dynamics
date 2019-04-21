@@ -56,7 +56,7 @@ class Faq extends React.Component {
 
     this.setState(prevState => ({
       open: !prevState.open,
-    }), console.log(this.state))
+    }))
   }
 
   render() {

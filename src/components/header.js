@@ -1,23 +1,33 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import bgImage from '../images/stars-bg.png'
+import Image from '../components/Image'
 import { theme, Container, Row, media } from '../styles'
 import ZipCheck from './ZipCheck'
 
 const StyledRow = styled(Row)`
-  background-color: ${theme.colors.pink};
-  background-image: url(${bgImage});
-  background-size: cover;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+`
+
+const AbsoluteBgContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  position: absolute;
 
 `
 
 const StyledContainer = styled(Container)`
   padding-top: 120px;
+  position: relative;
 `
 
 const StyledHeader = styled.header`
   text-align: center;
+  padding-left: .975rem;
+  padding-right: .975rem;
 `
 
 const StyledH1 = styled.h1`
@@ -40,8 +50,11 @@ const SubHeading = styled.p`
   }
 `
 
-const Header = () => (
+const Header = ({ bgImage }) => (
   <StyledRow>
+    <AbsoluteBgContainer>
+      <Image filename={bgImage} classes='gatsby-header-img' />
+    </AbsoluteBgContainer>
     <StyledContainer>
       <StyledHeader>
         <StyledH1>
