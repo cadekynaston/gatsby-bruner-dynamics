@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Image from '../components/Image'
+import Image from './Image'
 import { theme, Container, Row, media } from '../styles'
 import ZipCheck from './ZipCheck'
 
