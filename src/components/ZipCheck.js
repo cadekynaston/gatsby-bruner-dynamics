@@ -15,6 +15,8 @@ const ZipInput = styled.input`
   font-size: 16px;
   border-radius: 5px 0 0 5px;
   border: 0;
+  margin: 0;
+
   ${media.medium} {
     width: 50%;
     padding: 10px;
@@ -28,6 +30,7 @@ const ConnectButton = styled.button`
   font-size: 16px;
   border-radius: 0 5px 5px 0;
   border: 0;
+  margin: 0;
 
   &:hover {
     cursor: pointer;

@@ -14,9 +14,12 @@ import devices from '../images/devices.png'
 import satellite from '../images/satellite.png'
 import faqData from '../data/faq'
 import { theme } from "../styles"
+import Image from '../components/image';
 
 const IndexPage = () => (
   <Layout>
+
+    <Image />
 
     <Header />
 

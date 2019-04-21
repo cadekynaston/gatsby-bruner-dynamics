@@ -1,7 +1,7 @@
-import theme from '../styles/theme';
-import Container from '../styles/Container';
-import Row from '../styles/Row';
-import media from '../styles/media';
+import theme from './theme';
+import Container from './Container';
+import Row from './Row';
+import media from './media';
 
 
 export {
