@@ -2,7 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import { theme } from '../styles'
-import icon from '../images/icon-dollar.png'
 
 const PackageDetailContainer = styled.div`
   display: flex;

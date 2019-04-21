@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import { theme, Container, Row } from '../styles'
+import { theme } from '../styles'
 
 const Price = styled.h3`
   font-size: 36px;
