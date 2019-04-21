@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Image from './Image'
-import { theme, Container, Row, media } from '../styles'
+import Image from './image'
 import ZipCheck from './ZipCheck'
+import { theme, Container, Row, media } from '../styles'
 
 const StyledRow = styled(Row)`
   position: relative;

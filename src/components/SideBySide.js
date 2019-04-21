@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Image from './Image'
+import Image from './image'
 import { media, Row, Container } from '../styles'
 
 const SidebySideContainer = styled.div`
