@@ -53,6 +53,7 @@ const NavUl = styled.ul`
   display: flex;
   flex-direction: row;
   padding-left: 0;
+  list-style-type: none;
 
   &.open {
     display: flex;
@@ -72,9 +73,10 @@ const NavUl = styled.ul`
   }
 `
 
-const NavLi = styled.ul`
+const NavLi = styled.li`
   padding-left: 0;
   margin-right: 30px;
+  margin-bottom: 0;
 
   &:hover {
     cursor: pointer;
@@ -116,8 +118,8 @@ class Nav extends React.Component {
     super()
 
     this.state = {
-      windowTop: window.pageYOffset === 0,
-      windowWidth: window.innerWidth,
+      windowTop: true,
+      windowWidth: null,
       openNav: false,
     }
   }
@@ -125,6 +127,11 @@ class Nav extends React.Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener("resize", this.handleResize);
+
+    this.setState({
+      windowTop: window.pageYOffset === 0,
+      windowWidth: window.innerWidth,
+    })
   }
 
   handleScroll = () => {
@@ -164,7 +171,7 @@ class Nav extends React.Component {
               Call Now&nbsp;
               <BoldSpan>1.888.888.8888</BoldSpan>
             </NavCTA>
-            <NavToggleTrigger src={this.state.openNav ? close : hamburgerMenu} onClick={this.handleNavToggle}/>
+            <NavToggleTrigger src={this.state.openNav ? hamburgerMenu : hamburgerMenu} onClick={this.handleNavToggle}/>
           </StyledNav>
         </StyledContainer>
       </StyledRow>

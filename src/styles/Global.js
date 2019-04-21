@@ -31,6 +31,7 @@ const GlobalStyles = () => (
       line-height: 50px;
       margin-bottom: 15px;
       text-align: center;
+      font-weight: 400;
       color: ${theme.colors.dark};
       font-family: ${theme.fonts.MavenPro};
 
@@ -50,6 +51,7 @@ const GlobalStyles = () => (
       font-size: 36px;
       line-height: 38px;
       margin-bottom: 15px;
+      font-weight: 400;
       color: ${theme.colors.dark};
       font-family: ${theme.fonts.MavenPro};
 
@@ -81,6 +83,18 @@ const GlobalStyles = () => (
       }
     }
 
+    h5 {
+      font-size: 18px;
+      line-height: 24px;
+      color: ${theme.colors.dark};
+      font-family: ${theme.fonts.SourceSansPro};
+      font-weight: 700;
+
+      &.light {
+        font-weight: 400;
+      }
+    }
+
     p {
       font-size: 16px;
       line-height: 24px;
@@ -103,9 +117,22 @@ const GlobalStyles = () => (
       text-decoration: none;
     }
 
-    .text-center {
-      text-align: center;
+    .text-center { text-align: center; }
+    .margin-bottom-45 { margin-bottom: 45px; }
+    .margin-bottom-25 { margin-bottom: 25px; }
+
+    ul {
+      color: ${theme.colors.dark};
+      li {
+        margin-bottom: 25px;
+      }
     }
+
+    .max-width-500 {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
   `}
   />
 )

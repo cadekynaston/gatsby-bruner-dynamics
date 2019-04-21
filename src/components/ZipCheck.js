@@ -45,7 +45,7 @@ class ZipCheck extends React.Component {
     super()
 
     this.state = {
-      windowWidth: window.innerWidth,
+      windowWidth: false,
     }
   }
 
@@ -57,6 +57,9 @@ class ZipCheck extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
+    this.setState({
+      windowWidth: window.innerWidth
+    })
   }
 
 
@@ -65,9 +68,9 @@ class ZipCheck extends React.Component {
       <CenteredDiv>
         <ZipInput type="text" placeholder='Enter Zip' />
         <ConnectButton>
-          {this.state.windowWidth > theme.mediaSizes.medium
-            ? 'Connect with the Bruner'
-            : 'See Plans!' }
+          {this.state.windowWidth && this.state.windowWidth < theme.mediaSizes.medium
+            ? 'See Plans!'
+            : 'Connect with the Bruner' }
         </ConnectButton>
       </CenteredDiv>
     )
