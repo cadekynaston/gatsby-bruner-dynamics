@@ -10,8 +10,9 @@ import { theme, Container, Row, media } from '../styles'
 const StyledRow = styled(Row)`
   height: 60px;
   position: fixed;
-  background-color: ${props => props.bgColor};
+  background-color: ${props => props.windowTop ? 'transparent' : theme.colors.white};
   z-index: 100;
+  box-shadow: ${props => props.windowTop ? 'none' : '0 4px 10px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23)'};
 
   ${media.medium} {
     background-color: white;
@@ -170,7 +171,7 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <StyledRow bgColor={this.state.windowTop ? 'transparent' : theme.colors.white }>
+      <StyledRow windowTop={this.state.windowTop}>
         <StyledContainer>
           <StyledNav>
             <LogoNavContainer>
