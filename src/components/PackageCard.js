@@ -23,6 +23,8 @@ const PackageCardElement = styled.div`
 
   ${media.small} {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 30px;
+
   }
 `
 
@@ -55,8 +57,10 @@ const PriceDetails = styled.p`
 
 const SeeMoreButton = styled.p`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  top: 30px;
+  right: 30px;
   display: none;
 
   &:hover {
