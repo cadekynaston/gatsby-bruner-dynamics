@@ -142,10 +142,9 @@ class Nav extends React.Component {
   constructor() {
     super()
 
-    let windowTop = typeof window === 'undefined' ? true : window.pageYOffset === 0
 
     this.state = {
-      windowTop,
+      windowTop: true,
       openNav: false,
     }
   }
