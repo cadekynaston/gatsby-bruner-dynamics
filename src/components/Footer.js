@@ -20,7 +20,7 @@ const StyledRow = styled(Row)`
   }
 
   ${media.small} {
-    padding-bottom: 50px;
+    padding-bottom: 70px;
   }
 `
 
