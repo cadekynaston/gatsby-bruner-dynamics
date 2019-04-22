@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 
 import open from '../images/open.svg'
 import close from '../images/close.svg'
-import { theme } from '../styles'
+import { theme, media } from '../styles'
 
 const FaqContainer = styled.div`
   max-width: 650px;
@@ -11,7 +11,7 @@ const FaqContainer = styled.div`
 `
 
 const FaqTitle = styled.h5`
-  padding: 18px 23px;
+  padding: 18px 50px 18px 23px;
   background-color: ${theme.colors.blue};
   color: ${theme.colors.white};
   position: relative;
@@ -40,6 +40,10 @@ const FaqContent = styled.p`
   padding: 30px 55px;
   background-color: ${theme.colors.lightGray};
   border-radius: 0 0 10px 10px;
+
+  ${media.small} {
+    padding: 20px;
+  }
 `
 
 class Faq extends React.Component {

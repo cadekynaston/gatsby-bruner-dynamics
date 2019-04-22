@@ -33,7 +33,7 @@ const Image = props => (
       }
     `}
 
-    render={(data) => {
+    render={data => {
 
       const image = data.images.edges.find(n => {
         return n.node.relativePath.includes(props.filename);
@@ -50,7 +50,8 @@ const Image = props => (
           className={props.classes}
         />
       );
-    }}
+    }
+  }
   />
 )
 export default Image

@@ -5,7 +5,8 @@ import { theme, media } from '../styles'
 
 const BorderBoxContainer = styled.div`
   padding: 0 15px 15px 15px;
-  border-left: 1px solid ${theme.colors.blue};
+  border-left: 2px solid ${theme.colors.blue};
+  height: 100%;
 
   ${media.medium} {
     border-left: 0;
@@ -22,14 +23,14 @@ const Title = styled.h3`
 
   ${media.medium} {
     padding-bottom: 15px;
-    border-bottom: 1px solid ${theme.colors.blue};
+    border-bottom: 2px solid ${theme.colors.blue};
   }
 `
 
-const BorderBox = () => (
+const BorderBox = ({ title, content }) => (
   <BorderBoxContainer>
-    <Title>Easy Care</Title>
-    <p>For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime. </p>
+    <Title>{title}</Title>
+    <p>{content}</p>
   </BorderBoxContainer>
 )
 

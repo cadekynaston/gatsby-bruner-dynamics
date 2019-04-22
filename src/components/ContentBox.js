@@ -7,6 +7,9 @@ const ContentBoxContainer = styled.div`
   margin: 15px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  height: 100%;
+  background-color: ${theme.colors.white};
+
 
 `
 
@@ -27,18 +30,14 @@ const Title = styled.h3`
 const Content = styled.p`
   background-color: ${theme.colors.white};
   border-radius: 0 0 10px 10px;
-  padding: 30px 30px 60px 30px;
+  padding: 30px 30px 10px 30px;
 
-  ${media.medium} {
-    padding-bottom: 15px;
-    border-bottom: 1px solid ${theme.colors.blue};
-  }
 `
 
-const BorderBox = () => (
+const BorderBox = ({ title, content }) => (
   <ContentBoxContainer>
-    <Title>Easy Care</Title>
-    <Content>For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime. </Content>
+    <Title>{title}</Title>
+    <Content>{content}</Content>
   </ContentBoxContainer>
 )
 

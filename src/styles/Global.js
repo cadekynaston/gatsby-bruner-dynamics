@@ -101,11 +101,6 @@ const GlobalStyles = () => (
       font-family: ${theme.fonts.SourceSansPro};
       color: ${theme.colors.dark};
 
-      ${media.small} {
-        font-size: 14px;
-        line-height: 22px;
-      }
-
       &.legal {
         font-size: 10px;
         line-height: 12px;
