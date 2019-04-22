@@ -117,7 +117,7 @@ const NavToggleTrigger = styled.img`
 const BoldSpan = styled.span`
   font-weight: 600;
   a {
-    color: ${theme.colors.white};
+    color: ${props => props.fontColor};
   }
 `
 
@@ -184,7 +184,7 @@ class Nav extends React.Component {
             </LogoNavContainer>
             <NavCTA fontColor={this.state.windowTop ? theme.colors.white : theme.colors.blue} >
               Call Now&nbsp;
-              <BoldSpan><a href='tel:1-888-888-8888'>1.888.888.8888</a></BoldSpan>
+              <BoldSpan fontColor={this.state.windowTop ? theme.colors.white : theme.colors.blue}><a href='tel:1-888-888-8888'>1.888.888.8888</a></BoldSpan>
             </NavCTA>
             <NavToggleTrigger src={this.state.openNav ? hamburgerMenu : hamburgerMenu} onClick={this.handleNavToggle}/>
           </StyledNav>
