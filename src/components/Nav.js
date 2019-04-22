@@ -82,6 +82,7 @@ const NavLi = styled.li`
   padding-left: 0;
   margin-right: 30px;
   margin-bottom: 0;
+  white-space: nowrap;
 
   &:hover {
     cursor: pointer;
@@ -115,6 +116,9 @@ const NavToggleTrigger = styled.img`
 
 const BoldSpan = styled.span`
   font-weight: 600;
+  a {
+    color: ${theme.colors.white};
+  }
 `
 
 class Nav extends React.Component {
@@ -124,7 +128,7 @@ class Nav extends React.Component {
 
     let [windowWidth, windowTop] = [false, true] ;
     if (typeof window !== 'undefined') {
-      windowTop = window.pageYOffset === 0
+      windowTop = window.pageYOffset <= 0
       windowWidth = window.innerWidth
     }
 
@@ -140,14 +144,14 @@ class Nav extends React.Component {
     window.addEventListener("resize", this.handleResize);
 
     this.setState({
-      windowTop: window.pageYOffset === 0,
+      windowTop: window.pageYOffset <= 0,
       windowWidth: window.innerWidth,
     })
   }
 
   handleScroll = () => {
     this.setState({
-      windowTop: window.pageYOffset === 0
+      windowTop: window.pageYOffset <= 0
     })
   }
 
@@ -167,9 +171,9 @@ class Nav extends React.Component {
         <StyledContainer>
           <StyledNav>
             <LogoNavContainer>
-              <Logo src={ this.state.windowWidth <= theme.mediaSizes.medium || !this.state.windowTop
-                            ? logoColor
-                            : logoWhite }/>
+              <Logo src={ this.state.windowWidth >= theme.mediaSizes.medium && this.state.windowTop
+                            ? logoWhite
+                            : logoColor }/>
               <NavUl fontColor={this.state.windowTop ? theme.colors.white : theme.colors.blue}
                 className={`${this.state.openNav ? 'open': ''}`} >
                 <NavLi>Plans</NavLi>
@@ -180,7 +184,7 @@ class Nav extends React.Component {
             </LogoNavContainer>
             <NavCTA fontColor={this.state.windowTop ? theme.colors.white : theme.colors.blue} >
               Call Now&nbsp;
-              <BoldSpan>1.888.888.8888</BoldSpan>
+              <BoldSpan><a href='tel:1-888-888-8888'>1.888.888.8888</a></BoldSpan>
             </NavCTA>
             <NavToggleTrigger src={this.state.openNav ? hamburgerMenu : hamburgerMenu} onClick={this.handleNavToggle}/>
           </StyledNav>

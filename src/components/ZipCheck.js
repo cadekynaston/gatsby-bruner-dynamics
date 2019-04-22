@@ -6,7 +6,12 @@ import { theme, media } from '../styles'
 
 const CenteredDiv = styled.div`
  margin: 0 auto;
+
  ${media.medium} {
+    width: 450px;
+  }
+
+  ${media.small} {
     width: 300px;
   }
 `
@@ -43,23 +48,33 @@ const ConnectButton = styled.button`
   }
 `
 
+const HideForSmall = styled.div`
+  display: block;
+  white-space: nowrap;
+
+  ${media.smallOnly} {
+    display: none;
+  }
+`
+
+const HideForMediumUp = styled.div`
+  display: none;
+  white-space: nowrap;
+
+  ${media.smallOnly} {
+    display: block;
+  }
+`
+
 class ZipCheck extends React.Component {
 
   constructor() {
     super()
 
-    let windowWidth = typeof window !== 'undefined' ? window.innerWidth : false;
 
     this.state = {
-      windowWidth,
       inputValue: '',
     }
-  }
-
-  handleResize = () => {
-    this.setState({
-      windowWidth: window.innerWidth
-    })
   }
 
   handleChange = event => {
@@ -67,17 +82,10 @@ class ZipCheck extends React.Component {
   }
 
   handleClick = () => {
-
     if (this.state.inputValue.trim().length !== 5) return
     alert(this.state.inputValue);
   }
 
-  componentDidMount() {
-    window.addEventListener("resize", this.handleResize);
-    this.setState({
-      windowWidth: window.innerWidth
-    })
-  }
 
 
   render() {
@@ -85,9 +93,8 @@ class ZipCheck extends React.Component {
       <CenteredDiv>
         <ZipInput mask="99999" value={this.state.inputValue} onChange={this.handleChange} placeholder='Enter Zip' maskChar=" "  />
         <ConnectButton onClick={this.handleClick}>
-          {this.state.windowWidth && this.state.windowWidth < theme.mediaSizes.medium
-            ? 'See Plans!'
-            : 'Connect with the Bruner' }
+          <HideForMediumUp>See Plans!</HideForMediumUp>
+          <HideForSmall>Connect with the Bruner</HideForSmall>
         </ConnectButton>
       </CenteredDiv>
     )
