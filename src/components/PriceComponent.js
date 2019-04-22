@@ -5,6 +5,7 @@ import { theme } from '../styles'
 
 const Price = styled.h3`
   font-size: 36px;
+  position: relative;
   margin: 0;
   font-family: ${theme.fonts.MavenPro};
   font-weight: 300;
@@ -12,12 +13,16 @@ const Price = styled.h3`
 
 const PriceCents = styled.sup`
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
+  position: relative;
+  top: 2px;
 `
 
-const PriceMonths = styled.sup`
+const PriceMonths = styled.sub`
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
+  position: relative;
+  top: -5px;
 `
 
 const PriceComponent = (props) => (

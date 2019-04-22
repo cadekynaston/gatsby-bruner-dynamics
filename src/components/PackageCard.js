@@ -50,6 +50,7 @@ const PackageFeatureContainer = styled.div`
 const PriceDetails = styled.p`
   color: ${theme.colors.gray};
   font-size: 14px;
+  margin-top: -8px;
 `
 
 const SeeMoreButton = styled.p`
