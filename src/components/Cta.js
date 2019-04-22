@@ -22,8 +22,29 @@ const StyledContainer = styled(Container)`
   }
 
   ${media.small} {
-    padding-bottom: 45px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
+`
+
+const MediumCta = styled.div`
+
+  ${media.small} { display: none; }
+
+`
+
+const SmallCta = styled.div`
+  display: none;
+
+  a {
+    text-align: center;
+    color: ${theme.colors.white}
+  }
+
+  ${media.smallOnly} {
+    display: block;
+  }
+
 `
 
 const CtaButton = styled.button`
@@ -47,12 +68,26 @@ const CtaButton = styled.button`
 const Cta = ({ bgColor }) => (
   <Row bgColor={bgColor}>
     <StyledContainer bgColor={bgColor}>
+
+      <MediumCta>
       <h3 className='white text-center'>Get Connected With Brüner Dynamics Today. </h3>
-      <a href='tel:1.888.888.8888'>
-        <CtaButton>
-          Call 1.888.888.8888
-        </CtaButton>
-      </a>
+        <a href='tel:1.888.888.8888'>
+          <CtaButton>
+            Call 1.888.888.8888
+          </CtaButton>
+        </a>
+      </MediumCta>
+      <SmallCta>
+        <h3 className='white text-center no-margin-bottom'>
+          <a href='tel:1.888.888.8888'>
+            Click to Call<br/>
+          <span className='heavy'>
+            1.888.888.8888
+          </span>
+          </a>
+        </h3>
+
+      </SmallCta>
     </StyledContainer>
   </Row>
 )

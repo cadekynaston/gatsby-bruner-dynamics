@@ -10,6 +10,7 @@ import Cta from '../components/Cta'
 import Faq from '../components/Faq'
 import BorderBox from '../components/BorderBox'
 import ContentBox from '../components/ContentBox'
+import Footer from '../components/Footer'
 import faqData from '../data/faq'
 import { theme } from "../styles"
 
@@ -75,6 +76,8 @@ const IndexPage = () => (
       <Faq data={faqData.question3}/>
       <Faq data={faqData.question4}/>
     </BasicContent>
+
+    <Footer />
 
   </Layout>
 )

@@ -22,6 +22,16 @@ const AbsoluteBgContainer = styled.div`
 const StyledContainer = styled(Container)`
   padding-top: 120px;
   position: relative;
+
+  ${media.medium} {
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
+
+  ${media.small} {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
 `
 
 const StyledHeader = styled.header`

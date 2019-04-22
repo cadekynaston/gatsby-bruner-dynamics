@@ -66,6 +66,10 @@ const GlobalStyles = () => (
         line-height: 30px;
       }
 
+      &.heavy {
+        font-weight: 700;
+      }
+
       &.white {
         color: ${theme.colors.white};
       }
@@ -121,6 +125,18 @@ const GlobalStyles = () => (
       li {
         margin-bottom: 25px;
       }
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .no-margin-bottom {
+      margin-bottom: 0;
+    }
+
+    .heavy {
+      font-weight: 700;
     }
 
     .max-width-500 {

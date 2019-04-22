@@ -14,7 +14,8 @@ const theme = {
 
   mediaSizes: {
     medium: 1023,
-    small: 640
+    small: 640,
+    smallOnly: [0, 640],
   },
 
   maxWidth: '1032px',

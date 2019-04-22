@@ -10,7 +10,20 @@ import theme from './theme'
 // }, {});
 
 const media = Object.keys(theme.mediaSizes).reduce((all, key) => {
-  all[key] = `@media (max-width: ${theme.mediaSizes[key]}px)`
+
+  // @mixin small-only {
+  //   @media screen and (min-width: 0px) and (max-width: 640px) {
+  //     @content;
+  //   }
+  // }
+
+  if (theme.mediaSizes[key].length === 2) {
+    all[key] = `@media only screen and (min-width: ${theme.mediaSizes[key][0]}) and (max-width: ${theme.mediaSizes[key][1]}px)`
+  } else {
+    all[key] = `@media only screen and (max-width: ${theme.mediaSizes[key]}px)`
+  }
+
+
   return all
 }, {});
 

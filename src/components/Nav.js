@@ -21,6 +21,16 @@ const StyledRow = styled(Row)`
 const StyledContainer = styled(Container)`
   padding-top: 0;
   padding-bottom: 0;
+
+  ${media.medium} {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  ${media.small} {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 `
 
 const StyledNav = styled.nav`
@@ -112,9 +122,15 @@ class Nav extends React.Component {
   constructor() {
     super()
 
+    let [windowWidth, windowTop] = [false, true] ;
+    if (typeof window !== 'undefined') {
+      windowTop = window.pageYOffset === 0
+      windowWidth = window.innerWidth
+    }
+
     this.state = {
       windowTop: true,
-      windowWidth: null,
+      windowWidth,
       openNav: false,
     }
   }

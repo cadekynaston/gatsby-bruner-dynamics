@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import InputMask from 'react-input-mask';
 
 import { theme, media } from '../styles'
 
@@ -10,7 +11,7 @@ const CenteredDiv = styled.div`
   }
 `
 
-const ZipInput = styled.input`
+const ZipInput = styled(InputMask)`
   padding: 10px 25px;
   font-size: 16px;
   border-radius: 5px 0 0 5px;
@@ -47,8 +48,11 @@ class ZipCheck extends React.Component {
   constructor() {
     super()
 
+    let windowWidth = typeof window !== 'undefined' ? window.innerWidth : false;
+
     this.state = {
-      windowWidth: false,
+      windowWidth,
+      inputValue: '',
     }
   }
 
@@ -56,6 +60,16 @@ class ZipCheck extends React.Component {
     this.setState({
       windowWidth: window.innerWidth
     })
+  }
+
+  handleChange = event => {
+    this.setState({inputValue: event.target.value});
+  }
+
+  handleClick = () => {
+
+    if (this.state.inputValue.trim().length !== 5) return
+    alert(this.state.inputValue);
   }
 
   componentDidMount() {
@@ -69,8 +83,8 @@ class ZipCheck extends React.Component {
   render() {
     return (
       <CenteredDiv>
-        <ZipInput type="text" placeholder='Enter Zip' />
-        <ConnectButton>
+        <ZipInput mask="99999" value={this.state.inputValue} onChange={this.handleChange} placeholder='Enter Zip' maskChar=" "  />
+        <ConnectButton onClick={this.handleClick}>
           {this.state.windowWidth && this.state.windowWidth < theme.mediaSizes.medium
             ? 'See Plans!'
             : 'Connect with the Bruner' }
