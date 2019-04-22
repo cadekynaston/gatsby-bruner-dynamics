@@ -152,7 +152,6 @@ class Nav extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-
     this.setState({
       windowTop: window.pageYOffset === 0,
     })
@@ -181,7 +180,6 @@ class Nav extends React.Component {
               <HideForMediumUp>
                 <Logo src={logoColor}/>
               </HideForMediumUp>
-
               <NavUl fontColor={this.state.windowTop ? theme.colors.white : theme.colors.blue}
                 className={`${this.state.openNav ? 'open': ''}`} >
                 <NavLi>Plans</NavLi>

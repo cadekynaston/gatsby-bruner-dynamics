@@ -18,7 +18,7 @@ const media = Object.keys(theme.mediaSizes).reduce((all, key) => {
   // }
 
   if (theme.mediaSizes[key].length === 2) {
-    all[key] = `@media only screen and (min-width: ${theme.mediaSizes[key][0]}) and (max-width: ${theme.mediaSizes[key][1]}px)`
+    all[key] = `@media only screen and (min-width: ${theme.mediaSizes[key][0]}px) and (max-width: ${theme.mediaSizes[key][1]}px)`
   } else {
     all[key] = `@media only screen and (max-width: ${theme.mediaSizes[key]}px)`
   }
