@@ -121,45 +121,49 @@ const BoldSpan = styled.span`
   }
 `
 
+const HideForSmallMedium = styled.div`
+  display: flex;
+
+  ${media.smallMediumOnly} {
+    display: none;
+  }
+`
+
+const HideForMediumUp = styled.div`
+  display: none;
+
+  ${media.smallMediumOnly} {
+    display: flex;
+  }
+`
+
 class Nav extends React.Component {
 
   constructor() {
     super()
 
-    let [windowWidth, windowTop] = [false, true] ;
-    if (typeof window !== 'undefined') {
-      windowTop = window.pageYOffset <= 0
-      windowWidth = window.innerWidth
-    }
+    let windowTop = typeof window !== 'undefined' ? windowTop = window.pageYOffset === 0 : false
 
     this.state = {
       windowTop: true,
-      windowWidth,
       openNav: false,
     }
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener("resize", this.handleResize);
 
     this.setState({
-      windowTop: window.pageYOffset <= 0,
-      windowWidth: window.innerWidth,
+      windowTop: window.pageYOffset === 0,
     })
   }
 
   handleScroll = () => {
     this.setState({
-      windowTop: window.pageYOffset <= 0
+      windowTop: window.pageYOffset === 0
     })
   }
 
-  handleResize = () => {
-    this.setState({
-      windowWidth: window.innerWidth
-    })
-  }
 
   handleNavToggle = () => {
     this.setState(prevState => ({openNav: !prevState.openNav}))
@@ -171,9 +175,13 @@ class Nav extends React.Component {
         <StyledContainer>
           <StyledNav>
             <LogoNavContainer>
-              <Logo src={ this.state.windowWidth >= theme.mediaSizes.medium && this.state.windowTop
-                            ? logoWhite
-                            : logoColor }/>
+              <HideForSmallMedium>
+                <Logo src={ this.state.windowTop ? logoWhite : logoColor }/>
+              </HideForSmallMedium>
+              <HideForMediumUp>
+                <Logo src={logoColor}/>
+              </HideForMediumUp>
+
               <NavUl fontColor={this.state.windowTop ? theme.colors.white : theme.colors.blue}
                 className={`${this.state.openNav ? 'open': ''}`} >
                 <NavLi>Plans</NavLi>

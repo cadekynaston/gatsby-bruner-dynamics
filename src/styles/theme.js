@@ -16,6 +16,7 @@ const theme = {
     medium: 1023,
     small: 640,
     smallOnly: [0, 640],
+    smallMediumOnly: [0, 1023],
   },
 
   maxWidth: '1032px',
