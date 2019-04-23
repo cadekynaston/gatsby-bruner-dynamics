@@ -41,7 +41,7 @@ const SmallCta = styled.div`
     color: ${theme.colors.white}
   }
 
-  ${media.smallOnly} {
+  ${media.small} {
     display: block;
   }
 

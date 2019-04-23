@@ -140,9 +140,11 @@ const GlobalStyles = () => (
     }
 
     .max-width-500 {
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      ${media.largeUp} {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .gatsby-sbs-image {

@@ -125,7 +125,7 @@ const BoldSpan = styled.span`
 const HideForSmallMedium = styled.div`
   display: flex;
 
-  ${media.smallMediumOnly} {
+  ${media.medium} {
     display: none;
   }
 `
@@ -133,7 +133,7 @@ const HideForSmallMedium = styled.div`
 const HideForMediumUp = styled.div`
   display: none;
 
-  ${media.smallMediumOnly} {
+  ${media.medium} {
     display: flex;
   }
 `

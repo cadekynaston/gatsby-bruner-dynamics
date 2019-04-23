@@ -4,13 +4,14 @@ import styled from "@emotion/styled"
 import { theme, media } from '../styles'
 
 const ContentBoxContainer = styled.div`
-  margin: 15px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   height: 100%;
   background-color: ${theme.colors.white};
 
-
+  ${media.mediumUp} {
+    margin: 15px;
+  }
 `
 
 const Title = styled.h3`
@@ -30,7 +31,7 @@ const Title = styled.h3`
 const Content = styled.p`
   background-color: ${theme.colors.white};
   border-radius: 0 0 10px 10px;
-  padding: 30px 30px 10px 30px;
+  padding: 30px;
 
 `
 

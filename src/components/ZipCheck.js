@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import InputMask from 'react-input-mask';
 
 import { theme, media } from '../styles'
 
@@ -16,12 +15,13 @@ const CenteredDiv = styled.div`
   }
 `
 
-const ZipInput = styled(InputMask)`
+const ZipInput = styled.input`
   padding: 10px 25px;
   font-size: 16px;
+  color: ${props => props.formError ? theme.colors.red : theme.colors.dark };
   border-radius: 5px 0 0 5px;
-  border: 0;
   margin: 0;
+  border: 0;
 
   ${media.medium} {
     width: 50%;
@@ -52,7 +52,7 @@ const HideForSmall = styled.div`
   display: block;
   white-space: nowrap;
 
-  ${media.smallOnly} {
+  ${media.small} {
     display: none;
   }
 `
@@ -61,7 +61,7 @@ const HideForMediumUp = styled.div`
   display: none;
   white-space: nowrap;
 
-  ${media.smallOnly} {
+  ${media.small} {
     display: block;
   }
 `
@@ -71,13 +71,15 @@ class ZipCheck extends React.Component {
   constructor() {
     super()
 
-
     this.state = {
       inputValue: '',
+      formError: false,
     }
   }
 
   handleChange = event => {
+
+    this.setState({formError: !/^[0-9]{0,5}$/g.test(event.target.value)})
     this.setState({inputValue: event.target.value});
   }
 
@@ -91,7 +93,7 @@ class ZipCheck extends React.Component {
   render() {
     return (
       <CenteredDiv>
-        <ZipInput mask="99999" value={this.state.inputValue} onChange={this.handleChange} placeholder='Enter Zip' maskChar=" "  />
+        <ZipInput formError={this.state.formError}  value={this.state.inputValue} onChange={this.handleChange} placeholder='Enter Zip' />
         <ConnectButton onClick={this.handleClick}>
           <HideForMediumUp>See Plans!</HideForMediumUp>
           <HideForSmall>Connect with the Bruner</HideForSmall>

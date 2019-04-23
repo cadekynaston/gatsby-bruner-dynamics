@@ -13,7 +13,7 @@ const Column = styled.div`
   width: ${props => props.columnWidth}%;
 
   ${media.medium} {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 50%;
   }
 

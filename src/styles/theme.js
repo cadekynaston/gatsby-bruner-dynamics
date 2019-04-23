@@ -10,13 +10,29 @@ const theme = {
     legalGray: '#7D8086',
     dark: '#202E39',
     lightGray: '#F6F6F6',
+    red: '#CF4520'
   },
 
   mediaSizes: {
-    medium: 1023,
-    small: 640,
-    smallOnly: [0, 640],
-    smallMediumOnly: [0, 1023],
+    small: {
+      selector: 'max-width',
+      values: 640
+    },
+    medium: {
+      selector: 'max-width',
+      values: 1023
+    },
+    mediumUp: {
+      selector: 'min-width',
+      values: 640
+    },
+    mediumOnly: {
+      values: [640, 1023]
+    },
+    largeUp: {
+      selector: 'min-width',
+      values: 1024
+    },
   },
 
   maxWidth: '1032px',
@@ -30,4 +46,4 @@ const theme = {
 
 };
 
-export default theme;
+export default theme
