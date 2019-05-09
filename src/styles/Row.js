@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Row = styled.div`
+const Row = styled.section`
   width: 100%;
   padding-left: .975rem;
   padding-right: .975rem;

@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import { Container, Row } from '../styles'
 import PackageCard from './PackageCard'
 import Columns from './Columns'
-import packages from '../data/packages'
 
 const PackageCardLegalContainer = styled.div`
   margin-top: 30px;
@@ -16,15 +15,15 @@ const PackageCardLegal = styled.p`
   margin-bottom: 10px;
 `
 
-const PackageCards = () => (
+const PackageCards = ({ packageData }) => (
   <Row>
     <Container>
       <h2>Brüner’s Best Plans:</h2>
       <Columns>
-        <PackageCard packageData={packages.standard.pamantha} />
-        <PackageCard packageData={packages.standard.elTenEleven} />
-        <PackageCard packageData={packages.standard.jimmySpecial} />
-        <PackageCard packageData={packages.standard.cultHeroClassic} noborder={true} />
+        <PackageCard packageData={packageData.pamantha} />
+        <PackageCard packageData={packageData.elTenEleven} />
+        <PackageCard packageData={packageData.jimmySpecial} />
+        <PackageCard packageData={packageData.cultHeroClassic} noborder={true} />
       </Columns>
       <PackageCardLegalContainer>
         <PackageCardLegal className="legal">*Does not include The Patriot (2000) for obvious reasons. Independence Day and Red Dawn count, but not the re-makes. Each viewing of either Rocky IV, Iron Eagle, or Top Gun will result in a $5 credit to your account which will be applied to your subsequent bill. </PackageCardLegal>

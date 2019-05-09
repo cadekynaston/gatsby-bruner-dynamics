@@ -5,6 +5,17 @@ import { theme, media } from '../styles'
 const GlobalStyles = () => (
   <Global
   styles={css`
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin: 0;
+    }
+
     h1 {
       font-size: 60px;
       line-height: 62px;
@@ -97,6 +108,22 @@ const GlobalStyles = () => (
       &.light {
         font-weight: 400;
       }
+    }
+
+    html {
+      font-family: 'Source Sans Pro', sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     p {

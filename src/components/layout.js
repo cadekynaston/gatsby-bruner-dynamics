@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 
 import Nav from './Nav'
 import GlobalStyles from '../styles/Global';
-import "../styles/global.css"
 
 const Layout = ({ children }) => (
   <>

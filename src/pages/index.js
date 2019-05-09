@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
 import Header from "../components/header"
@@ -11,15 +12,14 @@ import Faq from '../components/Faq'
 import BorderBox from '../components/BorderBox'
 import ContentBox from '../components/ContentBox'
 import Footer from '../components/Footer'
-import faqData from '../data/faq'
 import { theme } from "../styles"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) =>  (
   <Layout>
 
     <Header bgImage='stars-bg.png' />
 
-    <PackageCards />
+    <PackageCards packageData={data.packages.edges[0].node.standard} />
 
     <SideBySide
       bgColor={theme.colors.lightGray}
@@ -33,13 +33,13 @@ const IndexPage = () => (
       <Columns>
       <BorderBox
           title='Easy Care'
-          content='For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime. ' />
-        <BorderBox
-          title='Voice'
-          content='The industry term for digital phone service is VoIP. We want to mention VoIP here a few times so that we sound legit and you will forefit your dollars to us. Voice is the only VoIP connection that doesn’t subtract from your internet data allowing more time for Strongbad emails and Battlestar Galactica chat rooms.' />
-        <BorderBox
-          title='DIRECTV'
-          content='If you can get Brüner at your home, you can get DIRECTV and vice versa. If you can get water in your home, you can quench your thirst and take baths. There is a hypothetical situation where you can take a bath, stream patriotic tunes, watch DIRECTV, and quench your thirst all at the same time.' />
+          content='For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime.' />
+      <BorderBox
+        title='Voice'
+        content='The industry term for digital phone service is VoIP. We want to mention VoIP here a few times so that we sound legit and you will forefit your dollars to us. Voice is the only VoIP connection that doesn’t subtract from your internet data allowing more time for Strongbad emails and Battlestar Galactica chat rooms.' />
+      <BorderBox
+        title='DIRECTV'
+        content='If you can get Brüner at your home, you can get DIRECTV and vice versa. If you can get water in your home, you can quench your thirst and take baths. There is a hypothetical situation where you can take a bath, stream patriotic tunes, watch DIRECTV, and quench your thirst all at the same time.' />
       </Columns>
     </BasicContent>
 
@@ -60,21 +60,17 @@ const IndexPage = () => (
       <h2 className="margin-bottom-25">Equipment</h2>
       <p className="max-width-500 margin-bottom-25">When you sign up for Brüner Dynamics, we make it easy to get connected. We’ll send a professional technician named Ralph to install your new dish in an optimal location and set up your wifi router inside your home. </p>
       <Columns>
-        <ContentBox
-          title='Easy Care'
-          content='For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime.'/>
-        <ContentBox
-          title='Brüner Wi-Fi Modem'
-          content='The Brüner WiFi Modem gives you wireless internet throughout your home. It also includes a Voice service adapter so we can listen and see if anything cool is happening at your place. '/>
+        <ContentBox data={data.contentCard.edges[0].node} />
+        <ContentBox data={data.contentCard.edges[1].node} />
       </Columns>
     </BasicContent>
 
     <BasicContent>
       <h2 className="margin-bottom-45">Brüner Dynamics FAQs</h2>
-      <Faq data={faqData.question1}/>
-      <Faq data={faqData.question2}/>
-      <Faq data={faqData.question3}/>
-      <Faq data={faqData.question4}/>
+      <Faq data={data.faq.edges[0].node.question1}/>
+      <Faq data={data.faq.edges[0].node.question2}/>
+      <Faq data={data.faq.edges[0].node.question3}/>
+      <Faq data={data.faq.edges[0].node.question4}/>
     </BasicContent>
 
     <Footer />
@@ -83,3 +79,97 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+query IndexQuery {
+
+  packages: allPackagesJson {
+    edges {
+      node {
+        standard {
+         pamantha {
+           name
+           packageDetails {
+             img
+             title
+             subtitle
+           }
+           priceDollars
+           priceCents
+           priceTerms
+           buttonText
+         }
+         elTenEleven {
+           name
+           priceDollars
+           priceCents
+           packageDetails {
+             img
+             title
+             subtitle
+           }
+           priceTerms
+           buttonText
+         }
+         jimmySpecial {
+           name
+           priceDollars
+           priceCents
+           packageDetails {
+             img
+             title
+             subtitle
+           }
+           priceTerms
+           buttonText
+         }
+         cultHeroClassic {
+           name
+           priceDollars
+           packageDetails {
+             img
+             title
+             subtitle
+           }
+           priceCents
+           priceTerms
+           buttonText
+         }
+        }
+      }
+    }
+  }
+
+  faq: allFaqJson {
+    edges {
+      node {
+        question1 {
+          question
+          answer
+        }
+        question2 {
+          question
+          answer
+        }
+        question3 {
+          question
+          answer
+        }
+        question4 {
+          question
+          answer
+        }
+      }
+    }
+  }
+
+  contentCard: allContentCardsJson {
+    edges {
+      node {
+        title
+        content
+      }
+    }
+  }
+}
+`

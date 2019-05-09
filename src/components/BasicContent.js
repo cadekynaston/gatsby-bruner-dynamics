@@ -2,7 +2,7 @@ import React from "react"
 
 import { Container, Row } from '../styles'
 
-const BasicContent = ({ bgColor, bgImage, children }) => (
+const BasicContent = ({ bgColor, children }) => (
   <Row bgColor={bgColor}>
     <Container>
       {children}

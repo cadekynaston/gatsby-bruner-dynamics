@@ -50,6 +50,13 @@ module.exports = {
       options: {
         trackingId: "UA-137604730-2",
       },
-    }
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/jsonData/`,
+      },
+    },
   ],
 }

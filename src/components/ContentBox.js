@@ -35,10 +35,10 @@ const Content = styled.p`
 
 `
 
-const BorderBox = ({ title, content }) => (
+const BorderBox = ({ data }) => (
   <ContentBoxContainer>
-    <Title>{title}</Title>
-    <Content>{content}</Content>
+    <Title>{data.title}</Title>
+    <Content>{data.content}</Content>
   </ContentBoxContainer>
 )
 

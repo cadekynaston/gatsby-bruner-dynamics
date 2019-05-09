@@ -16,22 +16,22 @@ const theme = {
   mediaSizes: {
     small: {
       selector: 'max-width',
-      values: 640
+      values: '640px'
     },
     medium: {
       selector: 'max-width',
-      values: 1023
+      values: '1023px'
     },
     mediumUp: {
       selector: 'min-width',
-      values: 640
+      values: '640px'
     },
     mediumOnly: {
-      values: [640, 1023]
+      values: ['640px', '1023px']
     },
     largeUp: {
       selector: 'min-width',
-      values: 1024
+      values: '1024px'
     },
   },
 
