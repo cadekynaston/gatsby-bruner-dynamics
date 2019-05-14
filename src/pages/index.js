@@ -31,15 +31,15 @@ const IndexPage = ({ data }) =>  (
     <BasicContent>
       <h2 className="margin-bottom-45">It Is Possible to Pay Us More Money</h2>
       <Columns>
-      <BorderBox
-          title='Easy Care'
-          content='For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime.' />
-      <BorderBox
-        title='Voice'
-        content='The industry term for digital phone service is VoIP. We want to mention VoIP here a few times so that we sound legit and you will forefit your dollars to us. Voice is the only VoIP connection that doesn’t subtract from your internet data allowing more time for Strongbad emails and Battlestar Galactica chat rooms.' />
-      <BorderBox
-        title='DIRECTV'
-        content='If you can get Brüner at your home, you can get DIRECTV and vice versa. If you can get water in your home, you can quench your thirst and take baths. There is a hypothetical situation where you can take a bath, stream patriotic tunes, watch DIRECTV, and quench your thirst all at the same time.' />
+        <BorderBox
+            title='Easy Care'
+            content='For only $5.99/mo, you can get priority customer support with annual dish relocation, free service calls, and a priority hotline which connects straight to Jimmy’s Pager – faster than a Led Zeppelin guitar solo.  Plus, you can add or cancel Easy Care at anytime.' />
+        <BorderBox
+          title='Voice'
+          content='The industry term for digital phone service is VoIP. We want to mention VoIP here a few times so that we sound legit and you will forefit your dollars to us. Voice is the only VoIP connection that doesn’t subtract from your internet data allowing more time for Strongbad emails and Battlestar Galactica chat rooms.' />
+        <BorderBox
+          title='DIRECTV'
+          content='If you can get Brüner at your home, you can get DIRECTV and vice versa. If you can get water in your home, you can quench your thirst and take baths. There is a hypothetical situation where you can take a bath, stream patriotic tunes, watch DIRECTV, and quench your thirst all at the same time.' />
       </Columns>
     </BasicContent>
 
@@ -81,6 +81,7 @@ const IndexPage = ({ data }) =>  (
 export default IndexPage
 
 export const query = graphql`
+
 query IndexQuery {
 
   packages: allPackagesJson {

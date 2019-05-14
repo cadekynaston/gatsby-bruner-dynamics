@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 
 import { theme, media } from '../styles'
@@ -66,41 +66,31 @@ const HideForMediumUp = styled.div`
   }
 `
 
-class ZipCheck extends React.Component {
+const ZipCheck = () => {
 
-  constructor() {
-    super()
+  const [inputValue, updateInputValue] = useState('')
+  const [formError, updateFormError] = useState(false)
 
-    this.state = {
-      inputValue: '',
-      formError: false,
-    }
+  const handleChange = event => {
+    updateFormError(!/^[0-9]{0,5}$/g.test(event.target.value))
+    updateInputValue(event.target.value);
   }
 
-  handleChange = event => {
-
-    this.setState({formError: !/^[0-9]{0,5}$/g.test(event.target.value)})
-    this.setState({inputValue: event.target.value});
+  const handleClick = () => {
+    if (inputValue.trim().length !== 5) return
+    alert(inputValue);
   }
 
-  handleClick = () => {
-    if (this.state.inputValue.trim().length !== 5) return
-    alert(this.state.inputValue);
-  }
+  return (
+    <CenteredDiv>
+      <ZipInput formError={formError} value={inputValue} onChange={handleChange} placeholder='Enter Zip' />
+      <ConnectButton onClick={handleClick}>
+        <HideForMediumUp>See Plans!</HideForMediumUp>
+        <HideForSmall>Connect with the Bruner</HideForSmall>
+      </ConnectButton>
+    </CenteredDiv>
+  )
 
-
-
-  render() {
-    return (
-      <CenteredDiv>
-        <ZipInput formError={this.state.formError}  value={this.state.inputValue} onChange={this.handleChange} placeholder='Enter Zip' />
-        <ConnectButton onClick={this.handleClick}>
-          <HideForMediumUp>See Plans!</HideForMediumUp>
-          <HideForSmall>Connect with the Bruner</HideForSmall>
-        </ConnectButton>
-      </CenteredDiv>
-    )
-  }
 }
 
 export default ZipCheck

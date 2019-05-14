@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import logoWhite from '../images/bruner-logo-white.svg'
 import logoColor from '../images/bruner-logo-color.svg'
 import hamburgerMenu from '../images/hamburger.svg'
-// import close from '../images/close.svg'
 import { theme, Container, Row, media } from '../styles'
 
 const StyledRow = styled(Row)`
@@ -142,7 +141,6 @@ class Nav extends React.Component {
 
   constructor() {
     super()
-
 
     this.state = {
       windowTop: true,

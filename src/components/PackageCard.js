@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "@emotion/styled"
 
 import PriceComponent from './PriceComponent'
@@ -77,65 +77,39 @@ const SeeMore = styled.img`
   margin-top: 2px;
   transform: ${props => props.seeMore ? 'rotate(180deg)' : 'rotate(0)'};
 `
-class PackageCard extends React.Component {
+const PackageCard = ({ packageData, noborder }) => {
 
-  constructor() {
-    super()
+  const [seeMore, setSeeMore] = useState(false);
+  const [packageHover, setPackageHover] = useState(false);
 
-    this.state = {
-      packageHover: false,
-      seeMore: false,
-    }
-  }
+  const packageFeatures = packageData.packageDetails.map((detail, i) =>
+    <PackageFeature key={i} details={detail} />
+  )
 
-  handleMouseEnter = () => {
-    this.setState({
-      packageHover: true
-    })
-  }
-
-  handleMouseLeave = () => {
-    this.setState({
-      packageHover: false
-    })
-  }
-
-  handleSeeMore = () => {
-    this.setState(prevState => ({ seeMore: !prevState.seeMore }))
-  }
-
-  render() {
-
-    const packageData = this.props.packageData
-    const packageFeatures = packageData.packageDetails.map((detail, i) => <PackageFeature key={i} details={detail} />)
-
-    return (
-      <PackageCardElement
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        noborder={this.props.noborder} >
-        <PackageName hovered={this.state.packageHover} >{packageData.name}</PackageName>
-        <PriceComponent
-          priceDollars={packageData.priceDollars}
-          priceCents={packageData.priceCents} />
-        <PriceDetails hovered={this.state.packageHover} >{packageData.priceTerms}</PriceDetails>
-        <PackageFeatureContainer
-         seeMore={this.state.seeMore}>
-          <ColorLine hovered={this.state.packageHover}/>
-          {packageFeatures}
-        </PackageFeatureContainer>
-        <PackageOrderButton
-          bgColor={this.state.packageHover ? theme.colors.green: theme.colors.blue}
-          buttonText={packageData.buttonText}/>
-
-        <SeeMoreButton onClick={this.handleSeeMore}>
-          {this.state.seeMore ? 'See Less' : 'See More'}
-          <SeeMore src={seeMoreIcon} seeMore={this.state.seeMore} />
-        </SeeMoreButton>
-      </PackageCardElement>
-    )
-  }
+  return (
+    <PackageCardElement
+      onMouseEnter={() => setPackageHover(true) }
+      onMouseLeave={() => setPackageHover(false) }
+      noborder={noborder} >
+      <PackageName hovered={packageHover} >{packageData.name}</PackageName>
+      <PriceComponent
+        priceDollars={packageData.priceDollars}
+        priceCents={packageData.priceCents} />
+      <PriceDetails hovered={packageHover} >{packageData.priceTerms}</PriceDetails>
+      <PackageFeatureContainer
+        seeMore={seeMore}>
+        <ColorLine hovered={packageHover}/>
+        {packageFeatures}
+      </PackageFeatureContainer>
+      <PackageOrderButton
+        bgColor={packageHover ? theme.colors.green: theme.colors.blue}
+        buttonText={packageData.buttonText} />
+      <SeeMoreButton onClick={() => setSeeMore(!seeMore) }>
+        {seeMore ? 'See Less' : 'See More'}
+        <SeeMore src={seeMoreIcon} seeMore={seeMore} />
+      </SeeMoreButton>
+    </PackageCardElement>
+  )
 }
-
 
 export default PackageCard

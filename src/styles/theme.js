@@ -36,8 +36,6 @@ const theme = {
   },
 
   maxWidth: '1032px',
-  padding: '20px',
-  margin: '20px',
 
   fonts: {
     MavenPro: 'Maven Pro, sans-serif',

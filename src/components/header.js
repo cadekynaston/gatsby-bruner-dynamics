@@ -14,9 +14,7 @@ const StyledRow = styled(Row)`
 const AbsoluteBgContainer = styled.div`
   height: 100%;
   width: 100%;
-  background-color: red;
   position: absolute;
-
 `
 
 const StyledContainer = styled(Container)`
@@ -78,6 +76,5 @@ const Header = ({ bgImage }) => (
     </StyledContainer>
   </StyledRow>
 )
-
 
 export default Header

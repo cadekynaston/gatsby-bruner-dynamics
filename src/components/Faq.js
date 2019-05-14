@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "@emotion/styled"
 
 import open from '../images/open.svg'
@@ -46,38 +46,39 @@ const FaqContent = styled.p`
   }
 `
 
-class Faq extends React.Component {
+const Faq = ({ data }) => {
 
-  constructor() {
-    super()
+  // Function component using hooks vs class component
 
-    this.state = {
-      open: false,
-    }
-  }
+  // constructor() {
+  //   super()
 
-  handleClick = () => {
+  //   this.state = {
+  //     open: false,
+  //   }
+  // }
 
-    this.setState(prevState => ({
-      open: !prevState.open,
-    }))
-  }
+  // handleClick = () => {
+  //   this.setState(prevState => ({
+  //     open: !prevState.open,
+  //   }))
+  // }
 
-  render() {
-    return (
-      <FaqContainer>
-        <FaqTitle
-          open={this.state.open}
-          onClick={this.handleClick}>
-          {this.props.data.question}
-        </FaqTitle>
-        <FaqContent open={this.state.open}>
-          {this.props.data.answer}
-        </FaqContent>
-      </FaqContainer>
-    )
-  }
+  const [open, setOpen] = useState(false);
+
+  return (
+    <FaqContainer>
+      <FaqTitle
+        open={open}
+        onClick={() => setOpen(!open)} >
+        {data.question}
+      </FaqTitle>
+      <FaqContent open={open}>
+        {data.answer}
+      </FaqContent>
+    </FaqContainer>
+  )
+
 }
-
 
 export default Faq
