@@ -4,7 +4,7 @@ const Row = styled.section`
   width: 100%;
   padding-left: .975rem;
   padding-right: .975rem;
-  background-color: ${props => props.bgColor ? props.bgColor : 'white' };
+  background-color: ${props => props.bgColor ? props.bgColor : 'transparent' };
 `;
 
 export default Row;

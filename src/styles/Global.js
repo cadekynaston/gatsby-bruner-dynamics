@@ -186,7 +186,7 @@ const GlobalStyles = () => (
     }
 
     .footer-bg-image {
-      margin-top: -250px;
+      margin-top: -300px;
       z-index: -1;
 
       ${media.medium} {
