@@ -15,7 +15,7 @@ const PackageCardLegal = styled.p`
   margin-bottom: 10px;
 `
 
-const PackageCards = ({ packageData }) => {
+const PackageCards = ({ packageData, bgColor }) => {
 
   // don't show right border on the last package card using the noborder prop
   let packagesJSX = Object.keys(packageData).map((key, i, arr) =>
@@ -23,7 +23,7 @@ const PackageCards = ({ packageData }) => {
   );
 
   return (
-    <Row>
+    <Row bgColor={bgColor}>
       <Container>
         <h2>Brüner’s Best Plans:</h2>
         <Columns>

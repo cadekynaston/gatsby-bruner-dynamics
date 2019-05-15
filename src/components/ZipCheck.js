@@ -77,8 +77,12 @@ const ZipCheck = () => {
   }
 
   const handleClick = () => {
-    if (inputValue.trim().length !== 5) return
-    alert(inputValue);
+    if (inputValue.trim().length !== 5 || formError) {
+      alert(`Invalid input. Zipcode must be a 5 digit integer.`)
+      updateFormError(true)
+    } else {
+      alert(`Success! Form value: ${inputValue}`)
+    }
   }
 
   return (
@@ -90,7 +94,6 @@ const ZipCheck = () => {
       </ConnectButton>
     </CenteredDiv>
   )
-
 }
 
 export default ZipCheck
