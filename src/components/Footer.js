@@ -1,27 +1,16 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import footerBgImage from '../images/footer-bg.png'
+import Image from './image'
 import logoColor from '../images/bruner-logo-color.svg'
-
 import { theme, Container, Row, media } from '../styles'
 
 const StyledRow = styled(Row)`
-  background-image: url(${footerBgImage});
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  padding-bottom: 250px;
+  background-color: transparent;
+`
 
-  ${media.medium} {
-    padding-bottom: 100px;
-    background-size: contain;
-    background-position: bottom;
-  }
-
-  ${media.small} {
-    padding-bottom: 70px;
-  }
+const StyleContainer = styled(Container)`
+  padding-top: 0;
 `
 
 const FooterLogo = styled.img`
@@ -51,18 +40,21 @@ const FooterTerms = styled.div`
 `
 
 const Footer = () => (
-  <StyledRow>
-    <Container>
-      <FooterLogo src={logoColor} />
-      <FooterLine />
-      <FooterCTA>Order Now</FooterCTA>
-      <FooterCTA className='heavy'>1.888.888.8888</FooterCTA>
-      <FooterTerms>
-        <p className='legal'>© 2019. All rights reserved</p>
-        <p className='legal'>Privacy Policy   |   Terms & Conditions</p>
-      </FooterTerms>
-    </Container>
-  </StyledRow>
+  <>
+    <StyledRow>
+      <StyleContainer>
+        <FooterLogo src={logoColor} />
+        <FooterLine />
+        <FooterCTA>Order Now</FooterCTA>
+        <FooterCTA className='heavy'>1.888.888.8888</FooterCTA>
+        <FooterTerms>
+          <p className='legal'>© 2019. All rights reserved</p>
+          <p className='legal'>Privacy Policy   |   Terms & Conditions</p>
+        </FooterTerms>
+      </StyleContainer>
+    </StyledRow>
+    <Image filename={'footer-bg.png'} classes='footer-bg-image' />
+  </>
 )
 
 

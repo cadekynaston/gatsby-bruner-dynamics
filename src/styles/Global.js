@@ -184,6 +184,19 @@ const GlobalStyles = () => (
       height: 100%;
       width: 100%;
     }
+
+    .footer-bg-image {
+      margin-top: -250px;
+      z-index: -1;
+
+      ${media.medium} {
+        margin-top: -150px;
+      }
+
+      ${media.small} {
+        margin-top: -50px;
+      }
+    }
   `}
   />
 )

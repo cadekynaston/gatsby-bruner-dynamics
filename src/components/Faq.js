@@ -28,7 +28,7 @@ const FaqTitle = styled.h5`
     margin: auto;
     height: 20px;
     width: 20px;
-    background-image: url(${props => props.open ? close : open});
+    background-image: url(${props => props.isOpen ? close : open});
     background-repeat: no-repeat;
     background-position: center center;
     content: '';
@@ -36,7 +36,7 @@ const FaqTitle = styled.h5`
 `
 
 const FaqContent = styled.p`
-  display: ${props => props.open ? 'block' : 'none'};
+  display: ${props => props.isOpen ? 'block' : 'none'};
   padding: 30px 55px;
   background-color: ${theme.colors.lightGray};
   border-radius: 0 0 10px 10px;
@@ -69,11 +69,11 @@ const Faq = ({ data }) => {
   return (
     <FaqContainer>
       <FaqTitle
-        open={open}
+        isOpen={open}
         onClick={() => setOpen(!open)} >
         {data.question}
       </FaqTitle>
-      <FaqContent open={open}>
+      <FaqContent isOpen={open}>
         {data.answer}
       </FaqContent>
     </FaqContainer>
