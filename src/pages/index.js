@@ -60,17 +60,23 @@ const IndexPage = ({ data }) =>  (
       <h2 className="margin-bottom-25">Equipment</h2>
       <p className="max-width-500 margin-bottom-25">When you sign up for Brüner Dynamics, we make it easy to get connected. We’ll send a professional technician named Ralph to install your new dish in an optimal location and set up your wifi router inside your home. </p>
       <Columns>
-        <ContentBox data={data.contentCard.edges[0].node} />
-        <ContentBox data={data.contentCard.edges[1].node} />
+        { data.contentCard.edges.map((data, i) => <ContentBox key={i} data={data.node} /> ) }
       </Columns>
     </BasicContent>
 
     <BasicContent>
       <h2 className="margin-bottom-45">Brüner Dynamics FAQs</h2>
-      <Faq data={data.faq.edges[0].node.question1}/>
+
+      {/* mapping to create FAQ components vs manual typing */}
+      {Object.keys(data.faq.edges[0].node).map((key, i) =>
+        <Faq key={i} data={data.faq.edges[0].node[key]} />
+      )}
+
+      {/* <Faq data={data.faq.edges[0].node.question1}/>
       <Faq data={data.faq.edges[0].node.question2}/>
       <Faq data={data.faq.edges[0].node.question3}/>
-      <Faq data={data.faq.edges[0].node.question4}/>
+      <Faq data={data.faq.edges[0].node.question4}/> */}
+
     </BasicContent>
 
     <Footer />

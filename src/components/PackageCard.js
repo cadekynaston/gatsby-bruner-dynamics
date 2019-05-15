@@ -72,10 +72,10 @@ const SeeMoreButton = styled.p`
   }
 `
 
-const SeeMore = styled.img`
+const SeeMoreIcon = styled.img`
   margin-left: 3px;
   margin-top: 2px;
-  transform: ${props => props.seeMore ? 'rotate(180deg)' : 'rotate(0)'};
+  transform: ${props => props.rotateIcon ? 'rotate(180deg)' : 'rotate(0)'};
 `
 const PackageCard = ({ packageData, noborder }) => {
 
@@ -106,7 +106,7 @@ const PackageCard = ({ packageData, noborder }) => {
         buttonText={packageData.buttonText} />
       <SeeMoreButton onClick={() => setSeeMore(!seeMore) }>
         {seeMore ? 'See Less' : 'See More'}
-        <SeeMore src={seeMoreIcon} seeMore={seeMore} />
+        <SeeMoreIcon src={seeMoreIcon} rotateIcon={seeMore} />
       </SeeMoreButton>
     </PackageCardElement>
   )
